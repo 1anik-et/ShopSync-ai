@@ -1,0 +1,170 @@
+.reviews-section {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 3rem;
+}
+
+.reviews-section h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.reviews-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.reviews-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.review-tab {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.review-tab.active {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.reviews-sort select {
+  background: var(--bg-secondary);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-card {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-elevated);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+.review-user strong {
+  display: block;
+  color: white;
+  margin-bottom: 0.2rem;
+}
+
+.platform-badge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+}
+
+.platform-badge.amazon { color: #ff9900; background: rgba(255,153,0,0.1); }
+.platform-badge.flipkart { color: #2874f0; background: rgba(40,116,240,0.1); }
+.platform-badge.shopsync { color: var(--accent-primary); background: rgba(188, 59, 255, 0.1); }
+
+.review-title {
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.review-text {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+.review-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.review-actions button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.review-actions button:hover {
+  color: white;
+}
+
+.write-review {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.write-review h3 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.write-review .form-group textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  color: white;
+  resize: vertical;
+}
+
+.form-group.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-group.row select {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+}

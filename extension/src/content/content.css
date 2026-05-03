@@ -1,0 +1,57 @@
+/* Isolated generic stylesheet for the ShopSync injection widget */
+.shopsync-floating-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483647; /* Maximum z-index */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(20, 20, 30, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  padding: 8px 16px 8px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(147, 51, 234, 0.2);
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shopsync-floating-widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9), 0 0 25px rgba(147, 51, 234, 0.4);
+  border-color: rgba(147, 51, 234, 0.6);
+}
+
+.shopsync-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+  border-radius: 50%;
+  font-size: 18px;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+.shopsync-btn {
+  background: transparent;
+  border: none;
+  color: #f8fafc;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.shopsync-btn:hover {
+  color: #c084fc;
+}
+
+.shopsync-btn.success {
+  color: #10b981; /* Green */
+}

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables (Never push secret keys!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+.next/
+out/
+build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python virtual environments (for your AI engine later)
+venv/
+__pycache__/

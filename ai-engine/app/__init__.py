@@ -1,0 +1,1 @@
+# ShopSync AI Engine

@@ -1,0 +1,107 @@
+.size-recommender {
+  padding: 1.25rem;
+  border-radius: 16px;
+}
+
+.size-recommender:hover {
+  transform: none;
+}
+
+.size-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.size-header h3 {
+  font-size: 0.95rem;
+  justify-content: flex-start;
+}
+
+.size-content {
+  min-height: 100px;
+}
+
+/* Form */
+.size-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.size-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.size-input-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.size-input-group input,
+.size-input-group select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.size-input-group input:focus,
+.size-input-group select:focus {
+  border-color: var(--accent-purple);
+}
+
+/* Analyzing animation */
+.scanning-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
+  background-size: 200%;
+  animation: scan 1.5s linear infinite;
+}
+
+@keyframes scan {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.pulse-text {
+  animation: pulse-opacity 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-opacity {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Result */
+.success-icon {
+  color: #34d399;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.recommended-size {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #a855f7, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0.5rem 0 0.25rem;
+}

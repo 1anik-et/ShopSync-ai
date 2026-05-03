@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopSync Cart</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <div class="logo">
+        <span class="logo-icon">✨</span>
+        <h1>ShopSync<span class="muted">.ai</span></h1>
+      </div>
+      <div class="badge" id="cart-count">0</div>
+    </header>
+
+    <div class="cart-items-container" id="cart-items">
+      <!-- Items injected via JS -->
+      <div class="empty-state" id="empty-state">
+        <p>Your cart is empty.</p>
+        <p class="muted">Browse retailers and click the ShopSync button to add items.</p>
+      </div>
+    </div>
+
+    <footer class="popup-footer">
+      <button class="btn btn-primary w-100" id="go-to-dashboard">
+        Go to Command Center
+      </button>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

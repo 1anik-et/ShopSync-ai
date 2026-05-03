@@ -1,0 +1,10 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/ai-engine/venv/Scripts/python.exe",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/ai-engine"
+    ],
+    "python.envFile": "${workspaceFolder}/ai-engine/.env",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    }
+}

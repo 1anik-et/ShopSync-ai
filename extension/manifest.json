@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "ShopSync AI Data Scraper",
+  "version": "1.0.0",
+  "description": "Unified E-commerce cart aggregator with AI fitting. Injects ShopSync onto retailer sites.",
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "View Unified Cart"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["src/content/content.css"],
+      "js": ["src/content/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
