@@ -20,9 +20,7 @@
     "dotenv": "^16.6.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.3",
-    "mongodb-memory-server": "^11.0.1",
-    "mongoose": "^9.4.1",
-    "puppeteer": "^24.42.0"
+    "user-agents": "^1.1.375"
   },
   "devDependencies": {
     "prisma": "^6.9.0"

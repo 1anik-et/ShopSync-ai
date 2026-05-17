@@ -1,8 +1,11 @@
 /**
  * Product Controller
- * Business logic for product operations
+ * Business logic for product operations.
+ * Search now uses the live masterSearchService for real-time multi-retailer results.
  */
 const prisma = require('../models/prisma');
+const { getUnifiedResults } = require('../services/apiSearchService');
+const jwt = require('jsonwebtoken');
 
 const productController = {
   async getAll(req, res) {
@@ -35,34 +38,22 @@ const productController = {
         return res.json([]);
       }
 
-      const query = q.trim().toLowerCase();
-      
-      // SQLite doesn't have native full-text search, so we do application-level filtering
-      const allProducts = await prisma.product.findMany();
-      
-      const results = allProducts.filter(product => {
-        const searchable = [
-          product.name,
-          product.retailer,
-          product.category,
-          product.description,
-        ].join(' ').toLowerCase();
+      // Extract user profile from auth token if available
+      let userProfile = null;
+      const authHeader = req.headers.authorization;
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        try {
+          const token = authHeader.split(' ')[1];
+          const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret123');
+          userProfile = await prisma.user.findUnique({ where: { id: decoded.id } });
+        } catch (e) {
+          // Token invalid, continue without profile
+        }
+      }
 
-        // Split query into words and check if ALL words appear somewhere
-        const words = query.split(/\s+/);
-        return words.every(word => searchable.includes(word));
-      });
-
-      // Sort by relevance (name match > category match > description match)
-      results.sort((a, b) => {
-        const aNameMatch = a.name.toLowerCase().includes(query) ? 2 : 0;
-        const bNameMatch = b.name.toLowerCase().includes(query) ? 2 : 0;
-        const aCatMatch = a.category.toLowerCase().includes(query) ? 1 : 0;
-        const bCatMatch = b.category.toLowerCase().includes(query) ? 1 : 0;
-        return (bNameMatch + bCatMatch) - (aNameMatch + aCatMatch);
-      });
-
-      res.json(results.slice(0, 20));
+      // Use the live master search service for real-time results
+      const results = await getUnifiedResults(q.trim(), userProfile);
+      res.json(results);
     } catch (err) {
       res.status(500).json({ error: 'Search failed', details: err.message });
     }

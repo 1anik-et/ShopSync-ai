@@ -1,21 +1,21 @@
 /**
  * Compare Service
  * Orchestrates product comparison across retailers.
- * Uses the scraper's built-in cache for speed.
+ * Uses the new masterSearchService for data fetching.
  */
-const { scrapeProducts, RETAILERS } = require('./scraperService');
+const { getUnifiedResults } = require('./apiSearchService');
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-async function compareProducts(query) {
+async function compareProducts(query, userProfile = null) {
   if (!query || query.trim().length < 2) {
     return { query, totalResults: 0, bestDeal: null, retailers: [], results: [] };
   }
 
   const normalizedQuery = query.trim().toLowerCase();
   
-  // Scrape live data (scraper has built-in 2-minute cache)
-  let results = await scrapeProducts(normalizedQuery);
+  // Fetch live data from all retailers concurrently
+  let results = await getUnifiedResults(normalizedQuery, userProfile);
 
   // Sort by price (lowest first) for best deal detection
   if (results.length > 0) {
