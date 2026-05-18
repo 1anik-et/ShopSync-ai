@@ -67,7 +67,7 @@ const Dashboard = () => {
           <p className="text-secondary mb-6 max-w-2xl mx-auto">
             Paste a product link from any site (Flipkart, Myntra, Amazon, etc.) and our AI will instantly find the best price for it across all platforms.
           </p>
-          <form onSubmit={handleBestDealSubmit} style={{ display: 'flex', alignItems: 'stretch', gap: '1rem', maxWidth: '42rem', margin: '0 auto' }}>
+          <form onSubmit={handleBestDealSubmit} className="deal-form" style={{ display: 'flex', alignItems: 'stretch', gap: '1rem', maxWidth: '42rem', margin: '0 auto' }}>
             <div style={{ flex: 1, position: 'relative', display: 'flex', alignItems: 'center' }}>
               <Search size={20} className="text-muted" style={{ position: 'absolute', left: '1rem', color: '#a1a1aa' }} />
               <input 
