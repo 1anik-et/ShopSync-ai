@@ -2,11 +2,6 @@
 
 .compare-page {
   padding-bottom: 4rem;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-@media (max-width: 768px) {
-  .compare-page { padding-top: 60px; }
 }
 
 .mx-2 {
