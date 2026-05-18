@@ -28,7 +28,7 @@ const CompareResultCard = ({ product }) => {
   };
 
   return (
-    <div className={`product-card glass-panel`}>
+    <div className={`product-card glass-panel ${product.isBestDeal ? 'best-deal-card' : ''}`}>
       <div className="product-image-wrapper">
         <img src={product.image} alt={product.name} className="product-image" style={{ objectFit: 'contain', padding: '1rem', background: '#FFF' }} />
         <div className="product-badges">
