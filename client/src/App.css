@@ -11,6 +11,12 @@
   padding-bottom: 4rem;
 }
 
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 140px;
+  }
+}
+
 /* Common animations for route transitions */
 .page-transition-enter {
   opacity: 0;

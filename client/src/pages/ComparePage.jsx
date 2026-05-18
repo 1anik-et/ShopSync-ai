@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { Search, TrendingDown, ExternalLink, Star, ChevronRight, Loader, ShoppingBag, ShieldCheck, Filter } from 'lucide-react';
+import { Search, TrendingDown, ExternalLink, Star, ChevronRight, Loader, ShoppingBag, ShieldCheck, Filter, X, SlidersHorizontal } from 'lucide-react';
 import { compareProducts, compareDeal } from '../services/api';
 import { useCart } from '../context/CartContext';
 import { useToast } from '../components/Toast';
@@ -105,6 +105,7 @@ const ComparePage = () => {
   const [customBrand, setCustomBrand] = useState('');
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [maxPrice, setMaxPrice] = useState(1000);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -229,8 +230,42 @@ const ComparePage = () => {
         </div>
       ) : (
         <div className="compare-layout">
+          {/* MOBILE QUICK FILTERS */}
+          <div className="mobile-quick-filters hidden-desktop">
+            <button className="btn btn-secondary filter-toggle-btn" onClick={() => setIsMobileSidebarOpen(true)}>
+              <SlidersHorizontal size={16} /> Filters
+            </button>
+            <div className="quick-filter-pills">
+              {availableFilters.brands.slice(0, 8).map(brand => (
+                <button 
+                  key={brand} 
+                  className={`pill-btn ${selectedBrands.includes(brand) ? 'active' : ''}`}
+                  onClick={() => toggleFilterArray(brand, selectedBrands, setSelectedBrands)}
+                >
+                  {brand}
+                </button>
+              ))}
+              {availableFilters.sizes.slice(0, 5).map(size => (
+                <button 
+                  key={size} 
+                  className={`pill-btn ${selectedSizes.includes(size) ? 'active' : ''}`}
+                  onClick={() => toggleFilterArray(size, selectedSizes, setSelectedSizes)}
+                >
+                  Size {size}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* LEFT SIDEBAR (Filters) */}
-          <aside className="compare-sidebar hidden-mobile">
+          <aside className={`compare-sidebar ${isMobileSidebarOpen ? 'mobile-open' : ''}`}>
+            <div className="sidebar-header hidden-desktop flex-between mb-4 pb-2 border-b">
+              <h2 className="m-0" style={{ fontSize: '1.25rem' }}>Filters</h2>
+              <button className="btn-icon" onClick={() => setIsMobileSidebarOpen(false)}>
+                <X size={20} />
+              </button>
+            </div>
+
             <div className="sidebar-block mb-6">
               <h3 className="sidebar-heading text-sm text-secondary uppercase tracking-wider mb-3 flex-center" style={{justifyContent: 'flex-start'}}>
                 <Filter size={14} className="mr-2"/> Retailer

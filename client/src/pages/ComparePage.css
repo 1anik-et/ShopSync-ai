@@ -300,21 +300,125 @@
 }
 
 /* Responsive */
+.hidden-desktop {
+  display: none !important;
+}
+
 @media (max-width: 900px) {
+  .hidden-desktop {
+    display: flex !important;
+  }
+  
+  .hidden-mobile {
+    display: none !important;
+  }
+
   .compare-layout {
     flex-direction: column;
   }
-  .compare-sidebar {
-    position: relative;
-    top: 0;
+
+  .mobile-quick-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
     width: 100%;
-    flex: none;
+    margin-bottom: 1rem;
+  }
+
+  .quick-filter-pills {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .quick-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-btn {
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    border-radius: 9999px;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .pill-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .pill-btn.active {
+    background: var(--accent-cyan);
+    color: #000;
+    border-color: var(--accent-cyan);
+    font-weight: 600;
+  }
+
+  .filter-toggle-btn {
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(147, 51, 234, 0.15);
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    color: #FFF;
+    font-size: 0.85rem;
+  }
+
+  /* Overlay sidebar for mobile */
+  .compare-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: -100%;
+    width: 85% !important;
+    max-width: 320px;
+    height: 100vh;
+    z-index: 1000;
+    margin: 0;
+    border-radius: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 15, 20, 0.98);
+    backdrop-filter: blur(20px);
+    overflow-y: auto;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1.5rem;
+  }
+
+  .compare-sidebar.mobile-open {
+    left: 0;
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.8);
+    display: block !important;
   }
 }
 
 @media (max-width: 600px) {
   .compare-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .compare-card-content {
+    padding: 0.75rem;
+  }
+  .compare-title {
+    font-size: 0.85rem;
+  }
+  .current-price-lg {
+    font-size: 1.1rem;
+  }
+  .compare-card-image {
+    height: 140px;
+  }
+  .compare-actions {
+    flex-direction: column;
+  }
+  .compare-actions .btn {
+    width: 100%;
   }
   .best-deal-highlight {
     flex-direction: column;
@@ -329,4 +433,3 @@
     font-size: 2rem;
   }
 }
-
