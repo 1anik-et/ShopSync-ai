@@ -205,7 +205,7 @@ const ComparePage = () => {
   return (
     <div className="compare-page container animate-enter">
       {/* Header */}
-      <header className="compare-header mb-6">
+      <header className="compare-header mb-4">
         <div className="flex-center mb-2 text-muted text-sm" style={{justifyContent: 'flex-start'}}>
           <Link to="/" className="hover-text-primary">Home</Link>
           <ChevronRight size={14} className="mx-2" />
@@ -213,13 +213,6 @@ const ComparePage = () => {
           <ChevronRight size={14} className="mx-2" />
           <span className="text-primary font-semibold">"{query}"</span>
         </div>
-        
-        <h1 className="mb-1 text-2xl">
-          Results for <span className="text-gradient">"{query}"</span>
-        </h1>
-        <p className="text-secondary text-sm">
-          Found <strong className="text-primary">{filteredItems.length} items</strong> from search query.
-        </p>
       </header>
       
       {data.totalResults === 0 ? (
