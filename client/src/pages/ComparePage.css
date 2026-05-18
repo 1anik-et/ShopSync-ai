@@ -315,6 +315,8 @@
 
   .compare-layout {
     flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
   }
   .compare-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -327,6 +329,8 @@
     gap: 0.8rem;
     width: 100%;
     margin-bottom: 1rem;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .quick-filter-pills {
