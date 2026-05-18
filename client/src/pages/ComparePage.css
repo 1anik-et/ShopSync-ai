@@ -270,11 +270,11 @@
   font-size: 1.05rem;
   line-height: 1.4;
   margin-bottom: auto;
-  word-wrap: break-word;
-
-
-
-
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2; /* fix warning */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .rating-box {

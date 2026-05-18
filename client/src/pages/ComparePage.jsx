@@ -28,42 +28,54 @@ const CompareResultCard = ({ product }) => {
   };
 
   return (
-    <div className={`product-card glass-panel ${product.isBestDeal ? 'best-deal-card' : ''}`}>
-      <div className="product-image-wrapper">
-        <img src={product.image} alt={product.name} className="product-image" style={{ objectFit: 'contain', padding: '1rem', background: '#FFF' }} />
-        <div className="product-badges">
-          <span className="retailer-badge" style={{ background: product.retailerMeta.color, color: ['#FFF', '#F8F9FA'].includes(product.retailerMeta.color) ? '#000' : '#FFF', border: 'none' }}>
-            {product.retailer.toUpperCase()}
-          </span>
-          {product.isBestDeal && (
-            <span className="tag flex-center gap-1" style={{ background: 'var(--accent-cyan)', color: '#000', border: 'none' }}>
-              <SparklesIcon size={12} /> Best Deal
-            </span>
-          )}
+    <div className={`compare-card glass-panel ${product.isBestDeal ? 'best-deal-card' : ''}`}>
+      {product.isBestDeal && (
+        <div className="best-deal-badge flex-center">
+          <SparklesIcon size={14} /> Best Deal
         </div>
-        <button 
-          className="btn-icon heart-btn"
-          onClick={(e) => { e.preventDefault(); window.open(product.productUrl, '_blank'); }}
-          title={`Open on ${product.retailer}`}
+      )}
+      
+      <div className="compare-card-image">
+        <img src={product.image} alt={product.name} />
+        <div 
+          className="retailer-tag" 
+          style={{ background: product.retailerMeta.color, color: ['#FFF', '#F8F9FA'].includes(product.retailerMeta.color) ? '#000' : '#FFF' }}
         >
-          <ExternalLink size={14} />
-        </button>
+          <span className="mr-1">{product.retailerMeta.logo}</span> {product.retailer}
+        </div>
       </div>
       
-      <div className="product-content">
-        <a href={product.productUrl} target="_blank" rel="noopener noreferrer">
-          <h3 className="product-title">{product.name}</h3>
-        </a>
-        <div className="product-price-row flex-between">
+      <div className="compare-card-content">
+        <h3 className="compare-title">{product.name}</h3>
+        
+        <div className="compare-meta flex-center" style={{justifyContent: 'flex-start', margin: '0.4rem 0'}}>
+          <div className="rating-box flex-center">
+            <Star size={12} fill="currentColor" />
+            <span>{product.rating}</span>
+          </div>
+          <span className="text-muted text-sm ml-2">({product.reviews.toLocaleString()})</span>
+        </div>
+        
+        <div className="compare-price-row flex-between">
           <div className="price-block">
-            <span className="current-price">Rs. {product.price.toLocaleString('en-IN', { minimumFractionDigits: 0 })}</span>
+            <span className="current-price-lg">Rs. {product.price.toLocaleString('en-IN', { minimumFractionDigits: 0 })}</span>
             {product.discount > 0 && (
               <span className="original-price">Rs. {product.originalPrice.toLocaleString('en-IN', { minimumFractionDigits: 0 })}</span>
             )}
           </div>
-          <button className="btn btn-primary add-to-cart-sm" onClick={handleAddToCart}>
-            <ShoppingBag size={14} /> Add
+        </div>
+        
+        <div className="delivery-info flex-center" style={{justifyContent: 'flex-start', margin: '0.5rem 0 1rem 0'}}>
+          <span className="text-xs text-muted">Delivery: <span className="text-primary font-semibold">{product.deliveryText}</span></span>
+        </div>
+        
+        <div className="compare-actions flex-between mt-auto" style={{gap: '0.5rem'}}>
+          <button className="btn btn-primary flex-1 text-sm" onClick={handleAddToCart} style={{padding: '0.5rem'}}>
+            Add to Cart
           </button>
+          <a href={product.productUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary flex-1 text-sm" style={{padding: '0.5rem', background: 'rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'center', alignItems: 'center'}} title={`Open on ${product.retailer}`}>
+            View <ExternalLink size={14} className="ml-1" />
+          </a>
         </div>
       </div>
     </div>
