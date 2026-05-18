@@ -73,10 +73,14 @@
   margin-bottom: 1rem;
   line-height: 1.4;
   color: var(--text-primary);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  .product-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .product-price-row {
