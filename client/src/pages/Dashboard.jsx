@@ -62,25 +62,24 @@ const Dashboard = () => {
 
       {/* Get the BEST deal here! */}
       <section className="section-block mb-8">
-        <div className="glass-panel text-center" style={{ padding: '3.5rem 2rem', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '24px', background: 'linear-gradient(145deg, rgba(20,20,25,0.8) 0%, rgba(10,10,15,0.9) 100%)' }}>
-          <h2 className="mb-4 text-gradient" style={{ fontSize: '2rem' }}>Get the BEST deal here!</h2>
-          <p className="text-secondary mb-6 max-w-2xl mx-auto">
+        <div className="glass-panel text-center deal-hero-panel">
+          <h2 className="mb-4 text-gradient deal-hero-title">Get the BEST deal here!</h2>
+          <p className="text-secondary mb-6 max-w-2xl mx-auto deal-hero-desc">
             Paste a product link from any site (Flipkart, Myntra, Amazon, etc.) and our AI will instantly find the best price for it across all platforms.
           </p>
-          <form onSubmit={handleBestDealSubmit} className="deal-form" style={{ display: 'flex', alignItems: 'stretch', gap: '1rem', maxWidth: '42rem', margin: '0 auto' }}>
-            <div style={{ flex: 1, position: 'relative', display: 'flex', alignItems: 'center' }}>
-              <Search size={20} className="text-muted" style={{ position: 'absolute', left: '1rem', color: '#a1a1aa' }} />
+          <form onSubmit={handleBestDealSubmit} className="deal-form">
+            <div className="deal-input-wrapper">
+              <Search size={20} className="deal-search-icon" />
               <input 
                 type="url" 
                 placeholder="https://www.flipkart.com/..." 
-                className="form-input"
+                className="form-input deal-input"
                 value={dealUrl}
                 onChange={(e) => setDealUrl(e.target.value)}
                 required
-                style={{ width: '100%', padding: '1rem 1rem 1rem 3rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(0,0,0,0.4)', color: 'white', fontSize: '1rem', outline: 'none' }}
               />
             </div>
-            <button type="submit" className="btn btn-primary whitespace-nowrap" style={{ padding: '0 1.5rem', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 'bold' }}>
+            <button type="submit" className="btn btn-primary deal-submit-btn">
               Find Best Deal
             </button>
           </form>

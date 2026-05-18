@@ -316,6 +316,10 @@
   .compare-layout {
     flex-direction: column;
   }
+  .compare-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+  }
 
   .mobile-quick-filters {
     display: flex;

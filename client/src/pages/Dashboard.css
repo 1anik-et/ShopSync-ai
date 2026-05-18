@@ -106,26 +106,140 @@
   font-size: 1.3rem;
 }
 
+/* Deal Hero Section */
+.deal-hero-panel {
+  padding: 3.5rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(20,20,25,0.8) 0%, rgba(10,10,15,0.9) 100%);
+}
+
+.deal-hero-title {
+  font-size: 2rem;
+}
+
+.deal-form {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.deal-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.deal-search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #a1a1aa;
+}
+
+.deal-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.deal-submit-btn {
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Responsive Overrides */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 640px) {
   .dashboard-header {
     flex-direction: column;
     align-items: flex-start;
   }
+  
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .dashboard-header p {
+    font-size: 0.9rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
 
   .category-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .category-chip {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    gap: 0.4rem;
+  }
+  
+  .category-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
   }
   
+  .deal-hero-panel {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .deal-hero-title {
+    font-size: 1.4rem;
+  }
+  
+  .deal-hero-desc {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .deal-form {
     flex-direction: column !important;
   }
   
+  .deal-input {
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .deal-search-icon {
+    left: 0.75rem;
+    width: 16px;
+  }
+  
   .deal-form .btn-primary {
     width: 100%;
-    padding: 1rem !important;
+    padding: 0.8rem !important;
+    font-size: 0.9rem;
   }
 }
