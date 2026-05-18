@@ -14,11 +14,16 @@ const reviewRoutes = require('./routes/reviews');
 
 const app = express();
 
-// Middleware
+// Middleware - UPDATED CORS SECTION
 app.use(cors({
-  origin: config.cors.origins,
-  credentials: config.cors.credentials,
+  origin: [
+    'http://localhost:3000',               // For local React testing
+    'http://localhost:5173',               // For local Vite testing (just in case)
+    'https://shop-sync-ai-xi.vercel.app'   // Your live Vercel frontend!
+  ],
+  credentials: true,
 }));
+
 app.use(express.json());
 app.use(requestLogger);
 
