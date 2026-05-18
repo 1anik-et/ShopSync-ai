@@ -11,14 +11,6 @@ const Profile = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!user) {
-      navigate('/auth');
-    } else {
-      loadOrderHistory();
-    }
-  }, [user, navigate]);
-
   const loadOrderHistory = async () => {
     setLoading(true);
     try {
@@ -30,6 +22,14 @@ const Profile = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/auth');
+    } else {
+      loadOrderHistory();
+    }
+  }, [user, navigate]);
 
   const formatPrice = (amount) => `Rs. ${Number(amount).toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 

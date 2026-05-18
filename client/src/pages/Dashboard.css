@@ -119,10 +119,13 @@
   .features-grid {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 640px) {
+  
   .deal-form {
     flex-direction: column !important;
+  }
+  
+  .deal-form .btn-primary {
+    width: 100%;
+    padding: 1rem !important;
   }
 }
