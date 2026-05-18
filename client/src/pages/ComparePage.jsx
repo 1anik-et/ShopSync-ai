@@ -30,7 +30,7 @@ const CompareResultCard = ({ product }) => {
   return (
     <div className={`product-card glass-panel`}>
       <div className="product-image-wrapper">
-        <img src={product.image} alt={product.name} className="product-image" style={{ objectFit: 'contain', padding: '1rem', background: '#FFF' }} />
+        <img src={product.image} alt={product.name} className="product-image" />
         <div className="product-badges">
           <span className="retailer-badge" style={{ background: product.retailerMeta.color, color: ['#FFF', '#F8F9FA'].includes(product.retailerMeta.color) ? '#000' : '#FFF', border: 'none' }}>
             {product.retailer.toUpperCase()}
@@ -383,7 +383,7 @@ const ComparePage = () => {
                  )}
                </div>
             ) : (
-               <div className="compare-grid">
+               <div className="compare-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '0.75rem', width: '100%', minWidth: 0 }}>
                  {filteredItems.map(product => (
                    <CompareResultCard key={product.id} product={product} />
                  ))}
